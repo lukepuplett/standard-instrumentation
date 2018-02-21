@@ -6,6 +6,8 @@ namespace Evoq.Instrumentation.Web
     {
         public static string XAmazonTraceIdHeaderKey { get; } = "X-Amzn-Trace-Id";
 
+        public static string XMicrosoftRequestIdHeaderKey { get; } = "x-ms-request-id";
+
         public static string XRequestIdHeaderKey { get; } = "X-Request-Id";
 
         public static string XTraceIdHeaderKey { get; } = "X-Trace-Id";
@@ -23,13 +25,14 @@ namespace Evoq.Instrumentation.Web
         /// </summary>
         public static IReadOnlyCollection<string> All = new string[]
         {
-            CorrelationId,
-            TraceIdHeaderKey,
-            XCorrelationId,
-            XTraceIdHeaderKey,
-            RequestIdHeaderKey,
-            XRequestIdHeaderKey,
             XAmazonTraceIdHeaderKey,
+            XMicrosoftRequestIdHeaderKey,
+            XRequestIdHeaderKey,
+            XTraceIdHeaderKey,
+            XCorrelationId,
+            RequestIdHeaderKey,
+            TraceIdHeaderKey,
+            CorrelationId,
         };
     }
 }
