@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Evoq.Instrumentation</id>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     
     <title>Evoq Instrumentation</title>
     <summary>Contains classes such as InMemoryLogger.</summary>
@@ -15,7 +15,7 @@
     <licenseUrl>https://github.com/lukepuplett/standard-instrumentation/blob/master/LICENSE</licenseUrl>    
         
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Added EmptyLoggerFactory.</releaseNotes>
+    <releaseNotes>Added InMemoryLoggerFactory.</releaseNotes>
     <copyright>Copyright © Evoq Limited 2018</copyright>
     <tags>logging, tracing, instrumentation</tags>
     
