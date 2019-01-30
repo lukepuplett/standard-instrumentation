@@ -6,6 +6,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instrumentation", "Instrume
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instrumentation.UnitTests", "Instrumentation.UnitTests\Instrumentation.UnitTests.csproj", "{114898DC-3E1F-4C8C-87F7-C4367F606326}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A144AA0E-473C-4819-AED9-DE1A60481B99}"
+	ProjectSection(SolutionItems) = preProject
+		Instrumentation\Instrumentation.nuspec = Instrumentation\Instrumentation.nuspec
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

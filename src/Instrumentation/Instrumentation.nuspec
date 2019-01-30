@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Evoq.Instrumentation</id>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
     
     <title>Evoq Instrumentation</title>
     <summary>Contains classes such as InMemoryLogger.</summary>

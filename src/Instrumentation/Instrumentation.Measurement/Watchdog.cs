@@ -10,7 +10,7 @@
     /// Continually runs probes looking for changes.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class Watchdog<T> where T : IEquatable<T>
+    public abstract class Watchdog<T>
     {
         /// <summary>
         /// Creates an instance.

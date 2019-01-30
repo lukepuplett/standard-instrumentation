@@ -2,11 +2,11 @@ namespace Evoq.Instrumentation.Measurement
 {
     using System;
     using System.Threading.Tasks;
-    
+
     /// <summary>
     /// Represents something that can take measurements and produce a status.
     /// </summary>
-    public abstract class ScheduledProbe<T> where T : IEquatable<T>
+    public abstract class ScheduledProbe<T>
     {
         /// <summary>
         /// Represents a measurement result.
@@ -30,7 +30,7 @@ namespace Evoq.Instrumentation.Measurement
             /// <summary>
             /// The time after which to next measure.
             /// </summary>
-            public DateTime MeasureAfter;            
+            public DateTime MeasureAfter;
         }
 
         /// <summary>
@@ -83,8 +83,7 @@ namespace Evoq.Instrumentation.Measurement
             if (DateTime.Now > this.MeasureAfter)
             {
                 Measurement measurement = await this.MeasureAsync();
-
-                bool isDifferent = !measurement.Status.Equals(this.LastStatus);
+                bool isDifferent = this.IsDifferent(measurement);
 
                 this.LastStatus = measurement.Status;
                 this.MeasureAfter = measurement.MeasureAfter;
@@ -94,6 +93,29 @@ namespace Evoq.Instrumentation.Measurement
             else
             {
                 return (this.LastStatus, false);
+            }
+        }
+
+        private bool IsDifferent(Measurement measurement)
+        {
+            IEquatable<T> equatableStatus = measurement.Status as IEquatable<T>;
+
+            if (equatableStatus != null)
+            {
+                return !equatableStatus.Equals(this.LastStatus);
+            }
+            else
+            {
+                IComparable<T> comparableStatus = measurement.Status as IComparable<T>;
+
+                if (comparableStatus != null)
+                {
+                    return !(comparableStatus.CompareTo(this.LastStatus) == 0);
+                }
+                else
+                {
+                    return !measurement.Status.Equals(this.LastStatus);
+                }
             }
         }
 
