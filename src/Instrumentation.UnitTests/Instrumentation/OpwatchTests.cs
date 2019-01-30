@@ -12,7 +12,7 @@ namespace Evoq.Instrumentation
         [TestMethod]
         public void OpWatch_works_with_action_of_timespan()
         {
-            int sleepMs = 100;
+            int sleepMs = 200;
 
             TimeSpan ts = TimeSpan.Zero;
             using (var op = new Opwatch((d, _) => ts = d, null))
@@ -20,7 +20,7 @@ namespace Evoq.Instrumentation
                 Thread.Sleep(sleepMs);
             }
 
-            const int tolerance = 21;
+            const int tolerance = 50;
 
             Assert.IsTrue(ts.TotalMilliseconds > (sleepMs - tolerance) && ts.TotalMilliseconds < (sleepMs + tolerance));
         }
