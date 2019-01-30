@@ -22,6 +22,7 @@ namespace Evoq.Instrumentation
         /// Initializes a new instance of the <see cref="Opwatch"/> class.
         /// </summary>
         /// <param name="writeDuration">Duration of the write.</param>
+        /// <param name="state">An object to make available to the write action.</param>
         /// <exception cref="System.ArgumentNullException">writeDuration</exception>
         public Opwatch(Action<TimeSpan, object> writeDuration, object state)
             : this()
